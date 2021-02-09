@@ -1,0 +1,32 @@
+{% extends 'basic.html' %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block div%}
+    <div style="padding:20px;display: flex;flex-direction:row;">
+        <div class="card" style="width: 25rem;margin-right:20px">
+            {% load static %}
+            <img src="{% static 'img/samsung.png' %}" class="card-img-top" alt="LOGO">
+            <div class="card-body">
+                <h4 class="card-title">Samsung</h4>
+                <p class="card-text">Samsung, South Korean company that is one of the world’s largest producers of electronic devices.</p>
+                <form method="get" action="samsung/menu">
+                    <button type="submit" class="btn btn-outline-warning">View</button>
+                </form>
+            </div>
+        </div>
+        <div class="card" style="width: 25rem;margin-right:20px">
+            {% load static %}
+            <br><br>
+            <img src="{% static 'img/xiaomi.png' %}" height="110" class="card-img-top" alt="LOGO">
+            <div class="card-body">
+                <br>
+                <h4 class="card-title">Xiaomi</h4>
+                <p class="card-text">Xiaomi Corporation is a Chinese multinational electronics company.</p><br>
+                <form method="get" action="xiaomi/menu">
+                    <button type="submit" class="btn btn-outline-warning">View</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock%}

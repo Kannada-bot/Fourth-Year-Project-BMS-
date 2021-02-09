@@ -1,0 +1,230 @@
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Xiaomi-Mobile-Overall</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/utils.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Lobster&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <a href="/"><h4>Brand Monitoring System</h4></a>
+                </div>
+                <br/><br/>
+                <ul class="list-unstyled components">
+                   <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div id="content">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <svg id="sidebarCollapse" width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-border-width" fill="currentColor"
+                                 xmlns="http://www.w3.org/2000/svg"><path d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            {% load static %}
+                            <img src="{% static 'img/logo.png' %}" alt="Logo" id="logo">
+                        </div>
+                    </div>
+                </nav>
+                <div class="holder">
+                    <span><a class="custom-button clicked">Overall</a></span>
+                    <span><a href = "flipkart" class="custom-button">Flipkart</a></span>
+                    <span><a href = "amazon" class="custom-button">Amazon</a></span>
+                    <div class="row" style="margin-top:50px;">
+                        <div class="donoughtChart">
+                            <canvas id="doughnut-chart-flipkart" width="100px" height="100px"></canvas>
+                        </div>
+                        <div class="donoughtChart">
+                            <canvas id="doughnut-chart-amazon" width="100px" height="100px"></canvas>
+                        </div>
+                    </div>
+                    <br /><br/><br/><br/>
+                    <div style="box-shadow: 0 2px 5px #ccc;background : rgb(245,245,245);
+                            padding:15px;width:94%;justify-content:center;margin-left:30px;">
+                        <figure class="highcharts-figure">
+                            <div id="container"></div>
+                        </figure>
+                    </div><br/><br/><br/>
+                    <div class="row">
+                        <div class="wordCloud">
+                            {% load static %}
+                            <img src="{% static 'img/xiaomi/mobile/overallPos.png' %}" alt="Postive Cloud" id="cloudpos"
+                                width="400px" height="400px" data-toggle="modal" data-target="#exampleModal">
+
+
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content" style="width:600px;">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Positive WordCloud</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                        {% load static %}
+                                            <img src="{% static 'img/xiaomi/mobile/overallPos.png' %}" alt="Postive Cloud" id="cloudposModal" width="550px" height="500px"
+                                            data-toggle="modal" data-target="#exampleModal">
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wordCloud">
+                            {% load static %}
+                            <img src="{% static 'img/xiaomi/mobile/overallNeg.png' %}" alt="Negative Cloud" id="cloudneg"
+                                width="400px" height="400px" data-toggle="modal" data-target="#exampleModal2">
+
+
+                            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content" style="width:600px;">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel2">Negative WordCloud</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                        {% load static %}
+                                            <img src="{% static 'img/xiaomi/mobile/overallNeg.png' %}" alt="Negative Cloud" id="cloudnegModal" width="550px" height="500px"
+                                            data-toggle="modal" data-target="#exampleModal">
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br/><br/><br/>
+                </div>
+            </div>
+        </div>
+        <br/>
+         <footer class="footer">
+            <p style="font-size:22px;">All Rights Reserved &#169; by Team BMS</p>
+        </footer>
+        <!-- jQuery CDN -->
+         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+         <!-- Bootstrap Js CDN -->
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+         <script type="text/javascript">
+             $(document).ready(function () {
+                 $('#sidebarCollapse').on('click', function () {
+                     $('#sidebar').toggleClass('active');
+                 });
+             });
+         </script>
+    </body>
+</html>
+<script>
+    new Chart(document.getElementById("doughnut-chart-flipkart"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Positive", "Negative", "Neutral"],
+      datasets: [
+        {
+          label: "Source : Flipkart",
+          backgroundColor: ["#00ff80", "#ff8080","#c1c1c1"],
+          data: [{{flipkartPosCount|safe}},{{flipkartNegCount|safe}},{{flipkartNeuCount|safe}}]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Source : Flipkart'
+      }
+    }
+});
+</script>
+<script>
+    new Chart(document.getElementById("doughnut-chart-amazon"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Positive", "Negative", "Neutral"],
+      datasets: [
+        {
+          label: "Source : Amazon",
+          backgroundColor: ["#00ff80", "#ff8080","#c1c1c1"],
+          data: [{{amazonPosCount|safe}},{{amazonNegCount|safe}},{{amazonNeuCount|safe}}]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Source : Amazon'
+      }
+    }
+});
+</script>
+<script>
+    Highcharts.chart('container', {
+    chart: {
+        type: 'bar'
+    },
+    credits: {
+        enabled: false
+    },
+    exporting: {
+        enabled: false
+    },
+    title: {
+        text: 'Bar chart showing sentiment on different platform'
+    },
+    xAxis: {
+        categories: ['Flipkart','Amazon']
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Total Reviews Collected'
+        }
+    },
+    legend: {
+        reversed: true
+    },
+    plotOptions: {
+        series: {
+            stacking: 'normal'
+        }
+    },
+    series: [{
+        name: 'Negative',
+        data: [{ y : {{flipkartNegCount|safe}} , color : '#ff8080'},{ y : {{amazonNegCount|safe}} , color : '#ff8080'}]
+        ,color : '#ff8080'
+    }, {
+        name: 'Neutral',
+        data: [{ y : {{flipkartNeuCount|safe}} , color : '#c1c1c1'},{ y : {{amazonNeuCount|safe}} , color : '#c1c1c1'}]
+        ,color : '#c1c1c1'
+    }, {
+        name: 'Positive',
+        data: [{ y : {{flipkartPosCount|safe}} , color : '#00ff80'},{ y : {{amazonPosCount|safe}} , color : '#00ff80'},]
+        ,color : '#00ff80'
+    }]
+});
+</script>
+

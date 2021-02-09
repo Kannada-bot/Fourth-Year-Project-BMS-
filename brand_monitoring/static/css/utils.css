@@ -1,0 +1,188 @@
+.row {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -10px;
+  justify-content : center;
+}
+
+.holder {
+  box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.2);
+  width : 96%;
+  margin-left:25px;
+  height : 200px;
+  background : #fff;
+  height : auto;
+}
+
+@media (max-width: 900px) {
+    .holder {
+        margin-left : 10px;
+        margin-right : 2px;
+    }
+}
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 5px #ccc;
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+  padding-top : 0px;
+}
+
+.card-title {
+  margin-bottom: 0.75rem;
+  font-weight : 700;
+}
+
+.card-text {
+    font-size : 17px;
+}
+
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 100%;
+  padding:15px;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  color: rgb(225,104,66);
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.btn-outline-warning {
+  color: rgb(225,104,66);
+  border-color: rgb(225,104,66);
+}
+
+.btn-outline-warning:hover {
+  color: #fff;
+  background-color: rgb(225,104,66);
+  border-color: rgb(225,104,66);
+}
+
+.custom-button{
+  display: inline-block;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: 10px 40px;
+  font-size : 15px;
+  font-weight: 500;
+  background : rgb(205,205,205);
+  }
+
+.clicked {
+    background : rgb(26,40,47);
+    color : white;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: 10px 40px;
+}
+
+.clicked:hover{
+    color:white;
+}
+
+.donoughtChart {
+    box-shadow: 0 2px 5px #ccc;
+    width:300px;
+    height:300px;
+    padding:20px;
+    margin-left:20px;
+    background : rgb(245,245,245);
+}
+
+/*-------------------------------STACKED BAR CHART---------------------------------------*/
+.highcharts-figure, .highcharts-data-table table {
+    min-width: 310px;
+    max-width: 800px;
+    margin: 1em auto;
+}
+.highcharts-data-table table {
+	font-family: Verdana, sans-serif;
+	border-collapse: collapse;
+	border: 1px solid #EBEBEB;
+	margin: 10px auto;
+	text-align: center;
+	width: 100%;
+	max-width: 500px;
+}
+.highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+}
+.highcharts-data-table th {
+	font-weight: 600;
+    padding: 0.5em;
+}
+.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+}
+.highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+}
+.highcharts-data-table tr:hover {
+    background: #f1f7ff;
+}
+
+.wordCloud {
+    margin : auto;
+    box-shadow: 0 2px 5px #ccc;
+    background-color : rgb(245,245,245);
+}
+
+.footer {
+    height : 100px;
+    background : white;
+    box-shadow: 50px 20px 50px #ccc;
+    bottom: 0px;
+    text-align: center;
+    padding : 30px;
+}
+
+.menucard {
+    width:200px;
+    height:200px;
+    margin-right:30px;
+}
+

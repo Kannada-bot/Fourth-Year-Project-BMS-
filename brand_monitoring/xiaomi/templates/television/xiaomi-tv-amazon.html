@@ -1,0 +1,157 @@
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Xiamoi-TV-Amazon</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+        <link rel="stylesheet" href="{% static 'css/utils.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Lobster&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+</head>
+    <body>
+        <div class="wrapper">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <a href="/"><h4>Brand Monitoring System</h4></a>
+                </div>
+                <br><br>
+                <ul class="list-unstyled components">
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Page Content Holder -->
+
+            <div id="content">
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <svg id="sidebarCollapse" width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-border-width" fill="currentColor"
+                                 xmlns="http://www.w3.org/2000/svg"><path d="M0 3.5A.5.5 0 0 1 .5 3h15a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-2zm0 5A.5.5 0 0 1 .5 8h15a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1zm0 4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H.5a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                        </div>
+
+                        <div>
+                            {% load static %}
+                            <img src="{% static 'img/logo.png' %}" alt="Logo" id="logo">
+                        </div>
+                    </div>
+                </nav>
+                <div class="holder">
+                    <span><a href ="overall" class="custom-button">Overall</a></span>
+                    <span><a href = "flipkart" class="custom-button">Flipkart</a></span>
+                    <span><a class="custom-button clicked">Amazon</a></span>
+                    <br/><br/><br/>
+                    <div class="row">
+                        <div style="margin-right:20px;box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.2);">
+                               {% load static %}
+                            <img src="{% static 'img/xiaomi/television/amazonPos.png' %}" alt="Postive Cloud" id="cloudpos"
+                                width="500px" height="400px">
+                        </div>
+                        <div style="margin-right:20px;box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.2);">
+                               {% load static %}
+                            <img src="{% static 'img/xiaomi/television/amazonNeg.png' %}" alt="Negative Cloud" id="cloudneg"
+                                width="500px" height="400px">
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row" style="justify-content:space-between">
+                        <div style="box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.2);height:auto">
+                            <figure class="highcharts-figure">
+                                <div id="container"></div>
+                            </figure>
+                        </div>
+                        <div style="width:500px;box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.2);padding : 10px;height:auto;
+                                    margin-left:170px;">
+                            <marquee loop="100" direction="up" behavior="slide" align = "bottom" scrollamount="3">
+                                {% for b in displayData.itertuples %}
+                                <td><span style="font-size: 16px;">&#8226;  {{ b.Review }}.</span></td><br/>
+                                {% endfor %}
+                            </marquee>
+                        </div>
+                    </div>
+                    <br/><br/><br/>
+                </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <br/>
+         <footer class="footer">
+            <p style="font-size:22px;">All Rights Reserved &#169; by Team BMS</p>
+        </footer>
+
+        <!-- jQuery CDN -->
+         <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+         <!-- Bootstrap Js CDN -->
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+         <script type="text/javascript">
+             $(document).ready(function () {
+                 $('#sidebarCollapse').on('click', function () {
+                     $('#sidebar').toggleClass('active');
+                 });
+             });
+         </script>
+    </body>
+</html>
+<script>
+    Highcharts.chart('container', {
+    chart: {
+        type: 'pie',
+        options3d: {
+            enabled: true,
+            alpha: 45,
+            beta: 0
+        },
+    },
+    credits: {
+        enabled: false
+    },
+    exporting: {
+        enabled: false
+    },
+    title: {
+        text: 'Sentiment Distribution'
+    },
+    tooltip: {
+        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            depth: 35,
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            },
+            colors: ['#00ff80','#c1c1c1','#ff8080']
+        },
+    },
+    series: [{
+        type: 'pie',
+        name: 'Share',
+        data: [
+            ['Positive',{{amazonPosCount|safe}}],
+            ['Neutral',{{amazonNeuCount|safe}}],
+            ['Negative',{{amazonNegCount|safe}}]
+        ]
+    }]
+});
+</script>
